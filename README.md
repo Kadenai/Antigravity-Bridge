@@ -42,7 +42,7 @@ Após instalar ou atualizar o plugin, inicie uma conversa nova ou recarregue plu
 
 ```json
 {
-  "workspace": "C:\\Users\\Levi\\Desktop\\AndroidApp",
+  "workspace": "C:\\Projetos\\MeuApp",
   "prompt": "Corrija o erro de validação do formulário e execute os testes pertinentes.",
   "access": "write",
   "scope": "ordinary",
