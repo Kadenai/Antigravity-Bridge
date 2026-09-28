@@ -1,0 +1,17 @@
+{
+  "name": "agy-bridge",
+  "version": "0.3.0",
+  "description": "Skill Smart/Full e MCP local para delegar tarefas ao Antigravity CLI.",
+  "author": { "name": "Levi" },
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "AGY Bridge",
+    "shortDescription": "Delegue tarefas locais ao Antigravity CLI.",
+    "longDescription": "Skill de delegacao Smart/Full e MCP local para ate cinco tarefas AGY, com isolamento Git opcional, checkpoint para mudancas amplas e bloqueio de ferramentas criticas.",
+    "developerName": "Levi",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "defaultPrompt": ["Use AGY Bridge no modo Smart para executar uma tarefa neste projeto."]
+  }
+}

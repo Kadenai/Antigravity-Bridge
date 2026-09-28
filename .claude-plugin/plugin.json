@@ -1,0 +1,6 @@
+{
+  "name": "agy-bridge",
+  "version": "0.3.0",
+  "description": "Skill Smart/Full e MCP local para orquestrar ate cinco instancias do Antigravity CLI.",
+  "author": { "name": "Levi" }
+}

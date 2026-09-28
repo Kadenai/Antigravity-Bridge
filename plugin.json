@@ -1,0 +1,21 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "agy-bridge",
+  "version": "0.3.0",
+  "description": "Delega tarefas locais ao Antigravity CLI com uma skill Smart/Full e um servidor MCP.",
+  "author": { "name": "Levi" },
+  "keywords": ["antigravity", "mcp", "coding", "agent"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "AGY Bridge",
+        "shortDescription": "Delegue tarefas locais ao Antigravity CLI.",
+        "longDescription": "Skill de delegacao Smart/Full e MCP local para ate cinco tarefas AGY, com isolamento Git opcional, checkpoint para mudancas amplas e bloqueio de ferramentas criticas.",
+        "developerName": "Levi",
+        "category": "Productivity",
+        "capabilities": ["Read", "Write"],
+        "defaultPrompt": ["Use AGY Bridge no modo Smart para executar uma tarefa neste projeto."]
+      }
+    }
+  }
+}
