@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "agy-bridge",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "Delega tarefas locais ao Antigravity CLI com uma skill Smart/Full e um servidor MCP.",
   "author": { "name": "Levi" },
   "keywords": ["antigravity", "mcp", "coding", "agent"],

@@ -1,6 +1,6 @@
 {
   "name": "agy-bridge",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "Skill Smart/Full e MCP local para delegar tarefas ao Antigravity CLI.",
   "author": { "name": "Levi" },
   "skills": "./skills/",

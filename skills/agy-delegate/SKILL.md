@@ -1,11 +1,35 @@
 ---
 name: agy-delegate
-description: Delegue ao Antigravity CLI (Gemini 3.8 Flash), pelo AGY Bridge, a escrita de código e outras tarefas locais pesadas enquanto você segue trabalhando em outra parte. Use sempre que, construindo algo no dia a dia, surgir uma unidade com contrato claro que renda mais de umas 80 linhas (uma função com testes, um módulo novo, testes para código existente, código repetitivo, edições em muitos arquivos, documentação) ou uma pesquisa independente; use também quando o usuário disser "usa o AGY", "manda pro Gemini" ou quando o AGENTS.md do projeto pedir delegação.
+description: Delegue ao Antigravity CLI (Gemini 3.8 Flash), pelo AGY Bridge, a escrita de código e outras tarefas locais pesadas enquanto você segue trabalhando em outra parte. Use sempre que, construindo algo no dia a dia, surgir uma unidade com contrato claro que renda mais de umas 80 linhas (uma função com testes, um módulo novo, testes para código existente, código repetitivo, edições em muitos arquivos, documentação) ou uma pesquisa independente; use também quando o usuário disser "usa o AGY", "manda pro Gemini" ou quando o AGENTS.md ou CLAUDE.md do projeto pedir delegação. Use também quando o usuário disser "neste projeto vamos usar o agy-bridge" ou algo equivalente: nesse caso, ative a delegação no projeto conforme a seção "Ativar num projeto".
 ---
 
 # Delegação ao AGY no dia a dia
 
 O AGY Bridge entrega trabalho ao Antigravity CLI, que roda sempre o **Gemini 3.8 Flash**. A divisão de papéis é fixa: você entende o pedido, desenha o contrato, verifica o resultado e responde ao usuário; o Flash digita. O ganho vem de duas fontes: tokens de saída que você não gasta e tempo em que você trabalha em paralelo. Uma delegação que vira espera parada, ou cujo pedido é mais longo que o código, perdeu o sentido.
+
+## Ativar num projeto
+
+Quando o usuário disser "neste projeto vamos usar o agy-bridge" (ou equivalente):
+
+1. Na raiz do projeto, acrescente o bloco abaixo ao `CLAUDE.md` e ao `AGENTS.md`. Se só um deles existir, acrescente a ele e crie o outro contendo apenas o bloco; se nenhum existir, crie os dois. Se o arquivo já tiver a seção `## AGY Bridge`, substitua-a em vez de duplicar. Não mexa no restante desses arquivos.
+2. Crie um `.agy-bridge.json` com `protected` (pastas geradas por build, bibliotecas copiadas para dentro do projeto, arquivos que não devem ser editados à mão) e `context` (os arquivos de instruções do projeto). Veja o formato no README do plugin.
+3. Em `commands`, **proponha** ao usuário os scripts de teste e verificação do projeto que valem a pena liberar, mostrando o que cada um executa, e só os inclua depois que ele confirmar. Cada comando liberado roda sem aprovação.
+4. Diga ao usuário, em poucas linhas, o que foi escrito e onde.
+
+Bloco para o `CLAUDE.md` e o `AGENTS.md`:
+
+```markdown
+## AGY Bridge
+
+Neste projeto, a escrita de código pesada é delegada ao Antigravity CLI (Gemini 3.8 Flash) pelo AGY Bridge, seguindo a skill `agy-delegate`.
+
+- Delegue unidades com contrato claro e mais de umas 80 linhas: funções com testes, módulos novos, testes para código existente, código repetitivo, edições mecânicas em vários arquivos e documentação.
+- Faça você mesmo as alterações pequenas, as decisões que dependem do usuário, a depuração que exige navegador ou sessão logada e o núcleo de autenticação, dados e segurança.
+- Escreva o contrato antes de delegar. Enquanto o AGY trabalha, espere com o `waitCommand` em segundo plano (ou `wait_task`) e siga em outros arquivos, sem tocar nos que foram entregues a ele.
+- Verifique em camadas: status, `changedFiles`, testes e build rodados por você, `diffStat` e leitura linha por linha só do que tem risco.
+- Avise o usuário numa linha o que foi delegado e como foi verificado.
+- As permissões do AGY neste projeto ficam em `.agy-bridge.json`.
+```
 
 ## Quando delegar
 

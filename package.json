@@ -1,6 +1,6 @@
 {
   "name": "agy-bridge",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "MCP local para orquestrar Antigravity CLI no Claude Code, Claude Desktop e Codex.",
   "main": "server/index.js",
   "scripts": {

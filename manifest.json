@@ -2,7 +2,7 @@
   "manifest_version": "0.3",
   "name": "agy-bridge",
   "display_name": "AGY Bridge",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "Execute tarefas do Antigravity CLI em projetos locais com limite de cinco instancias.",
   "author": { "name": "Levi" },
   "server": {

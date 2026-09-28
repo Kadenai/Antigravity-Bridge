@@ -96,11 +96,13 @@ O AGY nunca pode editar o `.agy-bridge.json`.
 
 ## Ativar a delegação num projeto
 
-A skill é acionada quando o modelo principal julga que a tarefa cabe nela. Para torná-la o comportamento padrão num repositório, acrescente ao `AGENTS.md` (ou `CLAUDE.md`) do projeto:
+A skill é acionada quando o modelo principal julga que a tarefa cabe nela. Para torná-la o comportamento padrão num repositório, basta dizer ao Claude ou ao Codex, dentro do projeto: **"neste projeto vamos usar o agy-bridge"**. O modelo então:
 
-```text
-Neste projeto, delegue ao AGY Bridge (skill agy-delegate) a escrita de unidades de código com contrato claro e mais de umas 80 linhas, seguindo o roteiro da skill.
-```
+1. acrescenta a seção `## AGY Bridge` ao `CLAUDE.md` e ao `AGENTS.md` da raiz (criando-os se preciso, sem duplicar a seção);
+2. cria o `.agy-bridge.json` com os caminhos protegidos e os arquivos de contexto;
+3. propõe os comandos de teste a liberar e só os inclui depois da sua confirmação.
+
+O texto exato da seção está em [skills/agy-delegate/SKILL.md](skills/agy-delegate/SKILL.md#ativar-num-projeto), para quem preferir colar à mão.
 
 ## Execução e verificação
 
@@ -118,4 +120,4 @@ npm test
 claude plugin validate .
 ```
 
-Os testes usam um AGY simulado e validam o protocolo MCP, a fila global e o bloqueio de ferramentas. As novidades da versão 0.3.0 (configuração por projeto, espera e registro de arquivos alterados) ainda não têm testes próprios. A validação manual nesta máquina também confirmou uma edição real de arquivo pelo AGY. O pacote `.mcpb` é gerado com `mcpb pack`; o ZIP é o diretório completo do plugin com os arquivos na raiz do arquivo compactado.
+Os testes usam um AGY simulado e validam o protocolo MCP, a fila global e o bloqueio de ferramentas. As novidades da versão 1.0.0 (configuração por projeto, espera e registro de arquivos alterados) ainda não têm testes próprios. A validação manual nesta máquina também confirmou uma edição real de arquivo pelo AGY. O pacote `.mcpb` é gerado com `mcpb pack`; o ZIP é o diretório completo do plugin com os arquivos na raiz do arquivo compactado.

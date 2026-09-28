@@ -11,7 +11,7 @@ const { git, status, checkpoint, createWorktree } = require('./git');
 const { loadProjectConfig } = require('./config');
 const { terminal, publicTask, waitFor } = require('./tasks');
 
-const server = new McpServer({ name: 'agy-bridge', version: '0.3.0' });
+const server = new McpServer({ name: 'agy-bridge', version: '1.0.0' });
 const textResult = (value, isError = false) => ({
   content: [{ type: 'text', text: JSON.stringify(value, null, 2) }],
   isError
